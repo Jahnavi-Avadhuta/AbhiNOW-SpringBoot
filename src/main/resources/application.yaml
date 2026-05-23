@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: abhinow
+
+  # ── DATABASE ──
+  datasource:
+    url: jdbc:mysql://localhost:3306/abhinow_spring?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=Asia/Kolkata&allowPublicKeyRetrieval=true
+    username: root
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # ── JPA ──
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  # ── SECURITY ──
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            scope:
+              - email
+              - profile
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
+
+# ── SERVER ──
+server:
+  port: 8080
+
+# ── JWT CONFIG ──
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 86400000
+
+# ── APP CONFIG ──
+app:
+  name: AbhiNOW
+  version: 2.0.0
+  frontend-url: http://localhost:3000
+
+# ── TWILIO ──
+twilio:
+  account-sid: ${TWILIO_ACCOUNT_SID}
+  auth-token: ${TWILIO_AUTH_TOKEN}
+  phone-number: ${TWILIO_PHONE_NUMBER}
