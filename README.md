@@ -1,20 +1,20 @@
 <div align="center">
 
-# 🚗 AbhiNOW  
+# 🚗 AbhiNOW
 ### *Saath chalein? Abhi?*
 
-A **full-stack ride-sharing & carpooling platform** built for **Hyderabad's daily commuters and students**.
+A **full-stack ride-sharing & carpooling platform** designed for **daily commuters and students**.
 
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5.14-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
+![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5.14-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-Authentication-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
-![Google OAuth](https://img.shields.io/badge/Google_OAuth2-Login-4285F4?style=for-the-badge&logo=google&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
-> **AbhiNOW is a community-driven ride-sharing platform designed for recurring daily travel rather than one-time rides.**
+> **AbhiNOW is a community-driven ride-sharing platform designed around recurring daily travel.**
 
-[✨ Features](#-features) • [🛠️ Tech Stack](#️-tech-stack) • [📸 Screenshots](#-screenshots) • [🚀 Setup](#-getting-started)
+[✨ Features](#-features) • [🛠️ Tech Stack](#️-tech-stack) • [🏗️ Architecture](#️-architecture) • [📸 Screenshots](#-screenshots) • [🚀 Setup](#-getting-started)
 
 </div>
 
@@ -22,24 +22,25 @@ A **full-stack ride-sharing & carpooling platform** built for **Hyderabad's dail
 
 # 💡 What is AbhiNOW?
 
-AbhiNOW is a **ride-sharing & carpooling platform** built specifically for **Hyderabad's daily commuters and students**.
+AbhiNOW is a **full-stack ride-sharing and carpooling platform** designed for daily commuters and students.
 
-Unlike Uber or Rapido which focus on **one-time rides**, AbhiNOW is designed around **daily recurring travel routes**.
+The platform focuses on recurring travel routes, allowing users travelling along similar routes to connect and share rides.
 
 ### Example Route
 
 ```text
 Miyapur → Ameerpet → Hitech City
-````
+```
 
-Passengers traveling on the same route can join the ride daily.
+Passengers and drivers travelling along similar routes can use the platform to coordinate their daily travel.
 
 ### Why AbhiNOW?
 
-✅ Affordable daily travel
-✅ Trusted recurring commuters
-✅ Reduced traffic congestion
-✅ Better ride-sharing experience
+* 💰 Affordable daily travel
+* 🤝 Recurring ride-sharing
+* 🚗 Convenient ride coordination
+* 🌱 Potential to reduce individual vehicle usage
+* 📍 Route-based ride discovery
 
 ---
 
@@ -47,10 +48,10 @@ Passengers traveling on the same route can join the ride daily.
 
 ## 🎒 Passenger Features
 
-* 🔍 Search rides by pickup & destination
-* 📍 Live ride tracking
-* ⭐ Driver ratings & reviews
-* 🧾 Ride history & invoices
+* 🔍 Search rides by pickup and destination
+* 📍 Track ride information
+* ⭐ View driver ratings and reviews
+* 🧾 View ride history
 * 🚗 View driver details before booking
 * 📱 OTP verification during registration
 
@@ -58,41 +59,42 @@ Passengers traveling on the same route can join the ride daily.
 
 ## 🚗 Driver Features
 
-* 🗺️ Post rides with source & destination
-* 📨 Accept / reject ride requests
+* 🗺️ Post rides with source and destination
+* 📨 Accept or reject ride requests
 * 📍 Share live location
 * 💰 View earnings
 * 🚘 Manage completed rides
+* 📋 Manage posted rides
 
 ---
 
 ## ⚙️ Admin Features
 
 * 👥 User management
-* 🚫 Suspend / Unsuspend users
+* 🚫 Suspend and unsuspend users
 * 🚗 Monitor rides
-* ⭐ Moderate ratings
+* ⭐ Manage ratings
 * 📍 Manage locations
-* 📊 Dashboard analytics
+* 📊 View dashboard information
 
 ---
 
-## 🔐 Authentication & Security
+# 🔐 Authentication & Security
 
 * 🔑 JWT Authentication
-* 🌐 Google OAuth Login
+* 🌐 Google OAuth2 Login
 * 📱 Twilio OTP Verification
 * 🔒 BCrypt Password Encryption
 * 🛡️ Role-Based Authorization
 
 ---
 
-## 🗺️ Real-Time Features
+# 🗺️ Real-Time Features
 
 * 🗺️ Google Maps Integration
 * 📍 Live Driver Tracking
 * ⚡ WebSocket Communication
-* 🛰️ Satellite View
+* 🛰️ Satellite Map View
 * 📌 Route Visualization
 
 ---
@@ -104,14 +106,12 @@ Passengers traveling on the same route can join the ride daily.
 * Java 21
 * Spring Boot
 * Spring Security
-* JWT Authentication
 * Spring Data JPA
 * Hibernate
+* JWT Authentication
 * MySQL
 * WebSockets
-* Twilio API
-* Google OAuth2
-* Docker
+* Maven
 
 ## Frontend
 
@@ -119,31 +119,45 @@ Passengers traveling on the same route can join the ride daily.
 * React Router
 * Axios
 * Google Maps API
-* STOMP + SockJS
+* STOMP
+* SockJS
 * JWT Decode
+
+## Additional Technologies
+
+* Twilio API
+* Google OAuth2
+* Docker
 
 ---
 
 # 🏗️ Architecture
 
 ```text
-React Frontend
-       ↓ REST API + JWT
-Spring Boot Backend
-       ↓ JPA / Hibernate
-MySQL Database
+                    React Frontend
+                          │
+                          │ REST API + JWT
+                          ▼
+                  Spring Boot Backend
+                          │
+                    JPA / Hibernate
+                          │
+                          ▼
+                    MySQL Database
 ```
 
-### Real-Time Flow
+### Real-Time Communication
 
 ```text
-Driver App
-     ↓
- WebSocket
-     ↓
- Spring Broker
-     ↓
- Passenger Live Tracking
+Driver
+   │
+   │ WebSocket
+   ▼
+Spring Boot
+   │
+   │ Real-Time Updates
+   ▼
+Passenger
 ```
 
 ---
@@ -200,7 +214,7 @@ Driver App
 
 ## 📍 Live Tracking
 
-![Tracking](screenshots/live-tracking.png)
+![Live Tracking](screenshots/live-tracking.png)
 
 ---
 
@@ -279,16 +293,16 @@ Update:
 src/main/resources/application.yaml
 ```
 
-Add your credentials:
+Add your local credentials and API configuration:
 
 ```yaml
 spring:
   datasource:
     username: root
-    password: root
+    password: YOUR_DATABASE_PASSWORD
 
 jwt:
-  secret: YOUR_SECRET
+  secret: YOUR_JWT_SECRET
 
 twilio:
   account-sid: YOUR_ACCOUNT_SID
@@ -298,6 +312,8 @@ google:
   client-id: YOUR_CLIENT_ID
   client-secret: YOUR_CLIENT_SECRET
 ```
+
+> ⚠️ Never commit real passwords, API keys, secrets, or credentials to GitHub.
 
 ---
 
@@ -349,7 +365,7 @@ http://localhost:3000
 * [ ] Payment Gateway Integration
 * [ ] Subscription Plans
 * [ ] Smart Route Matching
-* [ ] Mobile App
+* [ ] Mobile Application
 * [ ] Cloud Deployment
 
 ---
@@ -358,7 +374,11 @@ http://localhost:3000
 
 **Jahnavi Avadhuta**
 
-Built with ❤️ using **Spring Boot + React**
+B.Tech - Computer Science and Engineering
+
+[Portfolio](https://portfolio-website-zeta-blond-34.vercel.app/)  
+[LinkedIn](https://www.linkedin.com/in/jahnavi-avadhuta-879b4232b/)  
+[GitHub](https://github.com/Jahnavi-Avadhuta)
 
 ---
 
